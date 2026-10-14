@@ -7,9 +7,10 @@ export class AppController {
 
   @Get()
   @Render('index')
-  getHello() {
+  async getHello() {
     return {
-      title: 'My First NestJS App'
+        cnt: await this.appService.paintingsCnt(),
+        pnts: await this.appService.paintingsList()
     }
   }
 }
